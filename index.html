@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="featherlight/featherlight.min.css" type="text/css" rel="stylesheet" />
+<link href=" featherlight/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<title>Image Gallery</title>
+</head>
+<body>
+	<div class="input">
+  <input id="search_input" placeholder="Type to filter">
+	</div>
+	<ul class="gallery" id="search_list"
+	>
+		
+		<li><a href="photos/01.jpg"><p class="hide">I love hay bales. Took this snap on a drive through the countryside past some straw fields.</p><img class="" src="photos/thumbnails/01.jpg" alt="Hay Bales"></a></li>
+		
+		<li><a href="photos/02.jpg"><p class="hide">The lake was so calm today. We had a great view of the snow on the mountains from here.</p><img src="photos/thumbnails/02.jpg" alt="Lake"></a></li>
+
+		<li><a href="photos/03.jpg"><p class="hide">I hiked to the top of the mountain and got this picture of the canyon and trees below.</p><img src="photos/thumbnails/03.jpg" alt="Canyon"></a></li>
+
+		<li><a href="photos/04.jpg"><p class="hide">It was amazing to see an iceberg up close, it was so cold but didn't snow today.</p><img src="photos/thumbnails/04.jpg" alt="Iceberg"></a></li>
+
+		<li><a href="photos/05.jpg"><p class="hide">The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the canyons.</p><img src="photos/thumbnails/05.jpg" alt="Desert"></a></li>
+
+		<li><a href="photos/06.jpg"><p class="hide">Fall is coming, I love when the leaves on the trees start to change color.</p><img src="photos/thumbnails/06.jpg" alt="Fall"></a></li>
+
+		<li><a href="photos/07.jpg"><p class="hide">I drove past this plantation yesterday, everything is so green!</p><img src="photos/thumbnails/07.jpg" alt="Plantation"></a></li>
+
+		<li><a href="photos/08.jpg"><p class="hide">My summer vacation to the Oregon Coast. I love the sandy dunes!</p><img src="photos/thumbnails/08.jpg" alt="Dunes"></a></li>
+
+		<li><a href="photos/09.jpg"><p class="hide">We enjoyed a quiet stroll down this countryside lane.</p><img src="photos/thumbnails/09.jpg" alt="Countryside Lane"></a></li>
+
+		<li><a href="photos/10.jpg"><p class="hide">Sunset at the coast! The sky turned a lovely shade of orange.</p><img src="photos/thumbnails/10.jpg" alt="Sunset"></a></li>
+
+		<li><a href="photos/11.jpg"><p class="hide">I did a tour of a cave today and the view of the landscape below was breathtaking.</p><img src="photos/thumbnails/11.jpg" alt="Cave"></a></li>
+
+		<li><a href="photos/12.jpg"><p class="hide">I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.</p><img src="photos/thumbnails/12.jpg" alt="Bluebells"></a></li>
+
+		</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="featherlight/featherlight.min.js"></script>
+<script src="featherlight/featherlight.gallery.min.js"></script>
+<script src="jquery.fastLiveFilter.js"></script>
+<script>
+
+$(function() {
+        $('#search_input').fastLiveFilter('#search_list');
+});
+
+$(function() {
+	$('.gallery').featherlightGallery({
+	filter: "a",
+	nextIcon: ">",
+	previousIcon: "<"
+});
+});
+
+$.featherlightGallery.prototype.afterContent = function() {
+  var caption = this.$currentTarget.find("p").text();
+  this.$instance.find('.caption').remove();
+  $('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
+};
+
+</script>
+</body>
+</html>
