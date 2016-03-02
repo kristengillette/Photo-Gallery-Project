@@ -1,6 +1,6 @@
 # Photo-Gallery-Project
 
-Project created for <a href="www.teamtreehouse.com">Treehouse Tech Degree</a> program. 
+Project created for <a href="http://www.teamtreehouse.com">Treehouse Tech Degree</a> program. 
 
 An interactive photo gallery using JavaScript and jQuery. Thumbnails and photos were be provided with descriptions.
 
